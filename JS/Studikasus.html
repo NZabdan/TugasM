@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List</title> 
+</head>
+<body>
+  <h2>📝 To-Do List</h2>
+  <p>Klik teks tugas untuk menandai selesai (dicoret).</p>
+
+  <input type="text" id="tugasInput" placeholder="Tulis tugas baru">
+  <button id="tambahBtn">Tambah</button>
+
+  <ul id="daftarTugas"></ul>
+
+  <p id="info"></p>
+
+  <script>
+    // Array of object: menyimpan daftar tugas
+    let tugas = [
+      { teks: "Mengerjakan laporan JavaScript", selesai: false },
+      { teks: "Membaca materi W3Schools", selesai: true }
+    ];
+
+    const daftar = document.getElementById("daftarTugas");
+    const input = document.getElementById("tugasInput");
+    const tombolTambah = document.getElementById("tambahBtn");
+    const info = document.getElementById("info");
+
+    // Menampilkan seluruh tugas ke halaman
+    function tampilkanTugas() {
+      daftar.innerHTML = "";
+      let jumlahSelesai = 0;
+
+      tugas.forEach(function (item, index) {
+        const li = document.createElement("li");
+
+        // Tugas selesai memakai tag <s> (tercoret), yang belum memakai <span>
+        let teks;
+        if (item.selesai) {
+          jumlahSelesai++;
+          teks = document.createElement("s");
+        } else {
+          teks = document.createElement("span");
+        }
+        teks.textContent = item.teks;
+        teks.addEventListener("click", function () {
+          tandaiSelesai(index);
+        });
+
+        const tombolHapus = document.createElement("button");
+        tombolHapus.textContent = "Hapus";
+        tombolHapus.addEventListener("click", function () {
+          hapusTugas(index);
+        });
+
+        li.appendChild(teks);
+        li.appendChild(document.createTextNode(" "));
+        li.appendChild(tombolHapus);
+        daftar.appendChild(li);
+      });
+
+      info.textContent = "Total: " + tugas.length + " tugas | Selesai: " + jumlahSelesai;
+    }
+
+    // Menambah tugas baru
+    function tambahTugas() {
+      const teksBaru = input.value.trim();
+      if (teksBaru === "") {
+        alert("Tugas tidak boleh kosong!");
+        return;
+      }
+      tugas.push({ teks: teksBaru, selesai: false });
+      input.value = "";
+      tampilkanTugas();
+    }
+
+    // Mengubah status selesai / belum selesai
+    function tandaiSelesai(index) {
+      tugas[index].selesai = !tugas[index].selesai;
+      tampilkanTugas();
+    }
+
+    // Menghapus tugas
+    function hapusTugas(index) {
+      tugas.splice(index, 1);
+      tampilkanTugas();
+    }
+
+    tombolTambah.addEventListener("click", tambahTugas);
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        tambahTugas();
+      }
+    });
+
+    tampilkanTugas();
+  </script>
+</body>
+</html>
