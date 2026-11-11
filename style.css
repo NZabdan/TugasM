@@ -1,0 +1,116 @@
+/* --- Gaya Umum Halaman --- */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #e8f1f8;
+  color: #333;
+}
+
+/* Lapisan agar teks lebih terbaca */
+.overlay {
+  background-color: rgba(255, 255, 255, 0.9);
+  min-height: 100vh;
+}
+
+/* --- Header --- */
+header {
+  background-color: rgba(30, 90, 140, 0.95);
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+  letter-spacing: 1px;
+}
+
+header h3 {
+  margin-top: 5px;
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* --- Navigasi --- */
+nav {
+  background-color: #a9cce3;
+  text-align: center;
+  padding: 10px 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #1b2a38;
+  font-weight: bold;
+  margin: 0 15px;
+  font-size: 16px;
+}
+
+nav a:hover {
+  color: #1e5a8c;
+  text-decoration: underline;
+}
+
+/* --- Konten Utama --- */
+main {
+  padding: 30px;
+  max-width: 900px;
+  margin: 30px auto;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  border-radius: 10px;
+}
+
+h2 {
+  color: #1e5a8c;
+  border-bottom: 2px solid #a9cce3;
+  padding-bottom: 5px;
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+article {
+  background-color: #eaf2f8;
+  padding: 15px;
+  border-left: 4px solid #1e5a8c;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+time {
+  font-weight: bold;
+  color: #1e5a8c;
+}
+
+/* --- Alamat --- */
+address {
+  font-style: normal;
+  margin-top: 25px;
+  background-color: #f4f8fb;
+  padding: 10px;
+  border-left: 4px solid #a9cce3;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  background-color: #1b2a38;
+  color: #d6e6f2;
+  padding: 15px 0;
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+footer a {
+  color: #d6e6f2;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
